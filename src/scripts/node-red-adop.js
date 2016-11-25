@@ -51,6 +51,31 @@ var actions = {
       msg.send(msg_txt);
     }
   },
+  remove: {
+    name: "remove",
+    regexp: "( \-\-[^ ]+)*( [^\- ]+)?( [^\- ]+)?$",
+    help: "[options] <parent_project_name> <project_name_to_remove>",
+    method: "POST",
+    arg_params: "msg.match[1]",
+    required_params: [
+      "msg.match[2]",
+      "msg.match[3]"
+    ],
+    api_url: "\"/job/\" + msg.match[2].trim() + \"/job/Project_Management/job/Remove_Project/buildWithParameters?PROJECT_NAME=\" + msg.match[3].trim()",
+    request_message: "\"Requesting project \" + msg.match[3].trim() + \" removal for \" + msg.match[2].trim() + \"...\"",
+    response_callback: function(err, res, body, msg, arg_params) {
+      var msg_txt = "";
+      var output = arg_params.output;
+
+      if (output) {
+        msg_txt += "Returned code : " + res.statusCode + ", body : " + body;
+      } else {
+        msg_txt += "Done";
+      }
+
+      msg.send(msg_txt);
+    }
+  },
   list: {
     name: "list",
     regexp: "( \-\-[^ ]+)*( [^\-].+)?$",
