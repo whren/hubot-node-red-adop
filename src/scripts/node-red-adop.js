@@ -36,7 +36,8 @@ var actions = {
       "msg.match[2]",
       "msg.match[3]"
     ],
-    api_url: "\"/job/\" + msg.match[2].trim() + \"/job/Project_Management/job/Generate_Project/buildWithParameters?PROJECT_NAME=\" + msg.match[3].trim()",
+//    api_url: "\"/job/\" + msg.match[2].trim() + \"/job/Project_Management/job/Generate_Project/buildWithParameters?PROJECT_NAME=\" + msg.match[3].trim()",
+    api_url: "\"/job/\" + msg.match[2].trim() + \"/job/trigger-project-destroy/buildWithParameters?PROJECT_NAME=\" + msg.match[3].trim()",
     request_message: "\"Requesting project \" + msg.match[3].trim() + \" generation for \" + msg.match[2].trim() + \"...\"",
     response_callback: function(err, res, body, msg, arg_params) {
       var msg_txt = "";
@@ -61,7 +62,7 @@ var actions = {
       "msg.match[2]",
       "msg.match[3]"
     ],
-    api_url: "\"/job/\" + msg.match[2].trim() + \"/job/Project_Management/job/Remove_Project/buildWithParameters?PROJECT_NAME=\" + msg.match[3].trim()",
+    api_url: "\"/job/\" + msg.match[2].trim() + \"/job/trigger-project-jhipster/buildWithParameters?PROJECT_NAME=\" + msg.match[3].trim()",
     request_message: "\"Requesting project \" + msg.match[3].trim() + \" removal for \" + msg.match[2].trim() + \"...\"",
     response_callback: function(err, res, body, msg, arg_params) {
       var msg_txt = "";
