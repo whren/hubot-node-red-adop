@@ -22,7 +22,7 @@ var command_name = "adop";
 var actions = {
   generate: {
     name: "generate",
-    regexp: "( \-\-[^ ]+)*( [^\- ]+)?( [^\- ]+)?$",
+    regexp: "( \-\-[^ ]+)*( [^\- ][^ ]*)?( [^\- ][^ ]*)?$",
 //
 // Use function to allow use of this.properties
 //
@@ -54,7 +54,7 @@ var actions = {
   },
   destroy: {
     name: "destroy",
-    regexp: "( \-\-[^ ]+)*( [^\- ]+)?( [^\- ]+)?$",
+    regexp: "( \-\-[^ ]+)*( [^\- ][^ ]*)?( [^\- ][^ ]*)?$",
     help: "[options] <parent_project_name> <project_name_to_destroy>",
     method: "POST",
     arg_params: "msg.match[1]",
@@ -109,7 +109,7 @@ var actions = {
   },
   delete: {
     name: "delete",
-    regexp: "( \-\-[^ ]+)*( [^\- ]+)?( [^\- ]+)?$",
+    regexp: "( \-\-[^ ]+)*( [^\- ][^ ]*)?( [^\- ][^ ]*)?$",
     help: "[options] <parent_project_name> <project_name>",
     method: "POST",
     api_url: "\"/job/\" + msg.match[2].trim() + \"/job/\" + msg.match[3].trim() + \"/doDelete\"",
@@ -134,7 +134,7 @@ var actions = {
   },
   enable: {
     name: "enable",
-    regexp: "( \-\-[^ ]+)*( [^\- ]+)?( [^\- ]+)?$",
+    regexp: "( \-\-[^ ]+)*( [^\- ][^ ]*)?( [^\- ][^ ]*)?$",
     help: "[options] <parent_project_name> <project_name>",
     method: "POST",
     api_url: "\"/job/\" + msg.match[2].trim() + \"/job/\" + msg.match[3].trim() + \"/enable\"",
@@ -159,7 +159,7 @@ var actions = {
   },
   disable: {
     name: "disable",
-    regexp: "( \-\-[^ ]+)*( [^\- ]+)?( [^\- ]+)?$",
+    regexp: "( \-\-[^ ]+)*( [^\- ][^ ]*)?( [^\- ][^ ]*)?$",
     help: "[options] <parent_project_name> <project_name>",
     method: "POST",
     api_url: "\"/job/\" + msg.match[2].trim() + \"/job/\" + msg.match[3].trim() + \"/disable\"",
